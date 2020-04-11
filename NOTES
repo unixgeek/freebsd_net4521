@@ -1,0 +1,83 @@
+ssh -o IdentitiesOnly=yes build@192.168.56.154 "cat /usr/obj/nanobsd.net4521/_.disk.full" | sudo dd of=/dev/sdc bs=1M
+
+
+pkg_add -r http://ftp-archive.freebsd.org/pub/FreeBSD-Archive/old-releases/i386/8.4-RELEASE/packages/All/bash-4.2.42.tbz
+pkg_add -r http://ftp-archive.freebsd.org/pub/FreeBSD-Archive/old-releases/i386/8.4-RELEASE/packages/All/sudo-1.8.6.p7.tbz
+pkg_add -r http://ftp-archive.freebsd.org/pub/FreeBSD-Archive/old-releases/i386/8.4-RELEASE/packages/All/git-1.8.2.tbz
+
+
+Timecounter "i8254" frequency 1189162 Hz quality 0 <-- seems to be what is missing in the newer freebsd versions
+
+8.4 currently works.
+before running nanobsd again:
+vm snapshot
+need to test build world config
+need to test build kernel config
+
+4521 is the same as 4501
+
+use srssys to add boot_verbose and console to loader.conf
+use srsyss to add needed rc config or add to /cfg
+
+tiny vs pico vs nano
+
+dmesg
+pciconf -lv
+man -k Atheros
+
+http://svn.smallwall.org/
+http://phk.freebsd.dk/soekris/
+http://phk.freebsd.dk/soekris/pps/
+http://phk.freebsd.dk/soekris/kern45xx.html
+https://manpages.debian.org/jessie/freebsd-manpages/CPU_ELAN.4freebsd.en.html
+https://www.freebsd.org/doc/en_US.ISO8859-1/articles/nanobsd/howto.html
+
+For future config:
+
+#maybe wait on these
+NANO_CODESIZE=
+NANO_DATASIZE=-1
+NANO_CONFSIZE=2048     seems to be setting to 1MB?
+NANO_RAM_ETCSIZE=10240
+NANO_RAM_TMPVARSIZE=10240
+
+
+NANO_CFGDIR=""
+NANO_DATADIR=""
+
+409600 should be 200 MB
+
+======= OTHER NOTES FROM 12 =======
+cust_comconsole is outdated. need custom fuction to remove other consoles and set correctly
+ -S115200 shoul be blank for default of 9600 unless nano is setting COMCONSOLE_SPEED
+
+
+watchdog timer? description says there is on. what is it? also in NOTES
+
+sudo mdconfig -t vnode -a /usr/obj/nanobsd.net4521/_.disk.full
+sudo mount /dev/md0s1a /mnt
+sudo cp boot.config /mnt
+sudo cp loader.conf /mnt/boot
+sudo cp ttys /mnt/etc
+sudo umount /mnt
+sudo mdconfig -d -u 0
+
+monowall /smallwall
+
+# kernel compile
+        cd $MW_BUILDPATH/tmp/sys/$MW_ARCH/conf
+        cp $MW_BUILDPATH/freebsd8/build/kernelconfigs/M0N0WALL_GENERIC.$MW_ARCH $MW_BUILDPATH/tmp/sys/$MW_ARCH/conf/M0N0WALL_GENERIC
+                cp $MW_BUILDPATH/freebsd8/build/kernelconfigs/M0N0WALL_GENERIC.hints $MW_BUILDPATH/tmp/sys/$MW_ARCH/conf/
+        config M0N0WALL_GENERIC
+        cd $MW_BUILDPATH/tmp/sys/$MW_ARCH/compile/M0N0WALL_GENERIC/
+        make depend && make
+        strip kernel
+        strip --remove-section=.note --remove-section=.comment kernel
+        gzip -9 kernel
+        mv kernel.gz $MW_BUILDPATH/tmp/
+        cd modules/$MW_BUILDPATH/tmp/sys/modules
+        cp aesni/aesni.ko glxsb/glxsb.ko padlock/padlock.ko if_tap/if_tap.ko if_vlan/if_vlan.ko dummynet/dummynet.ko ipfw/ipfw.ko runfw/runfw.ko $MW_BUILDPATH/m0n0fs/boot/kernel
+                if [ $MW_ARCH = "i386" ]; then
+                cp acpi/acpi/acpi.ko $MW_BUILDPATH/tmp
+        fi
+

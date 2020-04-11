@@ -1,0 +1,54 @@
+ident		NANOBSD
+machine		i386
+cpu		I486_CPU
+
+options		CPU_SOEKRIS
+options		CPU_ELAN
+options		CPU_ELAN_XTAL
+options		CPU_ELAN_PPS	
+options		HZ=1000
+options 	SCHED_ULE		# ULE scheduler
+options 	PREEMPTION		# Enable kernel thread preemption
+options 	INET			# InterNETworking
+options 	FFS			# Berkeley Fast Filesystem
+options 	MD_ROOT			# MD is a potential root device
+options 	SYSVSHM			# SYSV-style shared memory
+options 	SYSVMSG			# SYSV-style message queues
+options 	SYSVSEM			# SYSV-style semaphores
+options 	_KPOSIX_PRIORITY_SCHEDULING # POSIX P1003_1B real-time extensions
+options 	PRINTF_BUFR_SIZE=128	# Prevent printf output being interspersed.
+
+device		pci
+device 		cbb
+device		pccard
+device		cardbus
+
+device		miibus
+device		sis
+device		nsphyter
+
+device		scbus
+device		ata
+
+device		sio
+device		puc
+
+device 		ada
+device 		cd
+device 		ch
+device 		da
+device 		pass
+device 		pt
+device 		sa
+
+device		uart			# Generic UART driver
+
+# Pseudo devices.
+device		crypto			# core crypto support
+device		loop			# Network loopback
+device		random			# Entropy device
+device		padlock_rng		# VIA Padlock RNG
+device		rdrand_rng		# Intel Bull Mountain RNG
+device		ether			# Ethernet support
+device		md			# Memory "disks"
+
