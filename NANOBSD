@@ -30,8 +30,9 @@ device		nsphyter
 device		scbus
 device		ata
 
-device		sio
-device		puc
+# Doesn't compile on 8? Pretty sure I saw this in dmesg on an 8 image...
+#device		sio
+#device		puc
 
 device 		ada
 device 		cd
