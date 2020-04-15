@@ -1,0 +1,11 @@
+option one
+option	two
+option		three
+option            four # comment
+   option five
+	option	six
+	
+device  foo
+# nothing here
+option there
+device bananna
