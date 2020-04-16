@@ -4,7 +4,7 @@
 #include "Config.h"
 
 Config::Config(const char *file) {
-    std::regex option_re(R"(\s*option\s+(\w+).*)");
+    std::regex option_re(R"(\s*options\s+(\w+).*)");
     std::regex device_re(R"(\s*device\s+(\w+).*)");
     std::smatch match;
 
