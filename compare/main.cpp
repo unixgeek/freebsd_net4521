@@ -46,7 +46,7 @@ int main(int argc, char *argv[]) {
 }
 
 void print_set(const std::set<std::string>& set) {
-    auto iterator = set.begin();
+    std::set<std::string>::iterator iterator = set.begin();
     while (iterator != set.end()) {
         std::cout << (*iterator) << std::endl;
         iterator++;
