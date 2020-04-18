@@ -46,4 +46,4 @@ ttyu1	"/usr/libexec/getty 3wire"	vt100	off secure
 ttyu2	"/usr/libexec/getty 3wire"	vt100	off secure
 ttyu3	"/usr/libexec/getty 3wire"	vt100	off secure
 # Dumb console
-dcons	"/usr/libexec/getty std.9600"	vt100	off secure
+dcons	"/usr/libexec/getty std.115200"	vt100	off secure
