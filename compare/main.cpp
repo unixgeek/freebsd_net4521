@@ -28,21 +28,7 @@ int main(int argc, char *argv[]) {
     }
 
     Config a(filea.c_str());
-    Config b(fileb.c_str());
 
-    std::set<std::string> options_in_b_only = a.options_difference(b);
-    std::set<std::string> devices_in_b_only = a.devices_difference(b);
-
-    std::set<std::string> options_in_a_only = b.options_difference(a);
-    std::set<std::string> devices_in_a_only = b.devices_difference(a);
-
-    std::cout << " ** in a only ** " << std::endl;
-    print_set(options_in_a_only);
-    print_set(devices_in_a_only);
-
-    std::cout << " ** in b only ** " << std::endl;
-    print_set(options_in_b_only);
-    print_set(devices_in_b_only);
 }
 
 void print_set(const std::set<std::string>& set) {

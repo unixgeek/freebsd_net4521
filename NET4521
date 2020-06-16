@@ -1,6 +1,7 @@
 ident		NET4521
 machine		i386
-cpu		I486_CPU
+#cpu		I486_CPU
+cpu		I586_CPU
 
 hints		"NET4521.hints"
 
@@ -23,7 +24,7 @@ options		DEVICE_POLLING
 options		NO_SWAPPING
 
 device		pci
-device		eisa
+#device		eisa
 device 		cbb
 device		pccard
 device		cardbus
@@ -34,7 +35,6 @@ device		nsphyter
 
 device		scbus
 device		ata
-device		atadisk
 
 # Doesn't compile on 8? Pretty sure I saw this in dmesg on an 8 image...
 #device		sio
@@ -51,3 +51,4 @@ device		random			# Entropy device
 device		ether			# Ethernet support
 device		md			# Memory "disks"
 device		bpf
+device		vr
