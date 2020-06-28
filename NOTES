@@ -78,3 +78,4 @@ update passwd
 /usr/sbin/pwd_mkdb -p /etc/master.passwd
 
 gzip -c /usr/obj/nanobsd.net4521/_.disk.image | ssh root@192.168.2.237 "gunzip -d | sh update"
+adding options TMPFS changed the md devices to tmpfs mounts...but why?
