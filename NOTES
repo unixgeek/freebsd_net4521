@@ -79,3 +79,21 @@ update passwd
 
 gzip -c /usr/obj/nanobsd.net4521/_.disk.image | ssh root@192.168.2.237 "gunzip -d | sh update"
 adding options TMPFS changed the md devices to tmpfs mounts...but why?
+======================================
+Review https://neon1.net/misc/minibsd.html for ideas.
+http://phk.freebsd.dk/soekris/
+
+======================================
+branch for 5501 and cleanup
+branch for 4521 and cleanup
+
+For 4521 boot problem, used minicom to capture output. Seems like there might be an issue with the new bootloader in 12. Tried what some suggested and grabbed bootloader
+from 11.2 (11.3 had the lua garbage, i think). Might be missing something still.
+x86bootstraploader,Revision1.1(FriJun2203:57:48UTC2018root@releng2.nyi.freebsd.org)Can'tworkoutwhichdiskwearebootingfrom.GuessedBIOSdevice0xffffffffnotfoundbyprobes,defaultingtodisk0:vocabularynotfoundcompile,notfoundforthnotfoundbuiltin:notfoundbuiltinsnotfoundforthnotfoundbuiltin:notfoundbuiltinsnotfoundforthnotfoundbuiltin:notfoundbuiltinsnotfoundforthnotfoundbuiltin:notfoundbuiltinsnotfoundforthnotfoundbuiltin:notfoundbuiltinsnotfoundforthnotfoundbuiltin:notfoundbuiltinsnotfoundforthnotfoundbuiltin:notfoundbuiltinsnotfoundforthnotfoundbuiltin:notfoundbuiltinsnotfoundforthnotfoundbuiltin:notfoundbuiltinsnotfoundforthnotfoundbuiltin:notfoundbuiltinsnotfoundforthnotfoundbuiltin:notfoundbuiltinsnotfoundforthnotfoundbuiltin:notfoundbuiltinsnotfoundforthnotfoundbuiltin:notfoundbuiltinsnotfoundforthnotfoundbuiltin:notfoundbuiltinsnotfoundforthnotfoundbuiltin:notfoundbuiltinsnotfoundforthnotfoundbuiltin:notfoundbuiltinsnotfoundforthnotfoundbuiltin:notfoundbuiltinsnotfoundforthnotfoundbuiltin:notfoundbuiltinsnotfoundforthnotfoundbuiltin:notfoundbuiltinsnotfoundforthnotfoundbuiltin:notfoundbuiltinsnotfoundforthnotfoundbuiltin:notfoundbuiltinsnotfoundforthnotfoundbuiltin:notfoundbuiltinsnotfoundforthnotfoundbuiltin:notfoundbuiltinsnotfoundforthnotfoundbuiltin:notfoundbuiltinsnotfoundonlynotfoundread1from0to0x76e10,error:0x1read1from0to0x76e10,error:0x1read1from0to0x76e10,error:0x1read1from0to0x76e10,error:0x1read1from0to0x76e10,error:0x1read1from0to0x76e10,error:0x1read1from0to0x76e10,error:0x1read1from0to0x76e10,error:0x1read1from0to0x76e10,error:0x1read1from0to0x76e10,error:0x1read1from0to0x76e10,error:0x1read1from0to0x76e10,error:0x1read1from0to0x76e10,error:0x1read1from0to0x76e10,error:0x1read1from0to0x76e10,error:0x1read1from
+Others suggested issues with MBR vs gpt.
+https://forums.freebsd.org/threads/lua-error-can-not-open-boot-lua-loader-lua.68635/page-2
+https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=233098
+https://forums.freebsd.org/threads/loader-lua-file-not-found.73282/
+https://forums.freebsd.org/threads/error-at-startup.70900/
+
+
