@@ -96,4 +96,5 @@ https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=233098
 https://forums.freebsd.org/threads/loader-lua-file-not-found.73282/
 https://forums.freebsd.org/threads/error-at-startup.70900/
 
-
+down to 11.4 and boot hangs at booting kernel |
+need to set maxusers in kernel

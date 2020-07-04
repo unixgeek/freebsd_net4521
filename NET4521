@@ -1,6 +1,5 @@
 ident		NET4521
 machine		i386
-#cpu		I486_CPU
 cpu		I586_CPU
 
 hints		"NET4521.hints"
@@ -52,3 +51,8 @@ device		ether			# Ethernet support
 device		md			# Memory "disks"
 device		bpf
 device		vr
+device		ath
+device		wlan
+device		ath_pci
+device		ath_hal
+device		ath_rate_sample
