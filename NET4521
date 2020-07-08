@@ -5,6 +5,7 @@ cpu		I586_CPU
 
 hints		"NET4521.hints"
 
+options		COMPAT_FREEBSD11
 options		CPU_SOEKRIS
 options		CPU_ELAN
 options		HZ=1000
@@ -22,6 +23,7 @@ options 	PRINTF_BUFR_SIZE=128	# Prevent printf output being interspersed.
 
 options		DEVICE_POLLING
 options		NO_SWAPPING
+options		TMPFS
 
 device		pci
 #device		eisa
