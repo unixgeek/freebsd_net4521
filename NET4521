@@ -1,12 +1,12 @@
 ident		NET4521
 machine		i386
-cpu		I586_CPU
+cpu		I486_CPU
 
 hints		"NET4521.hints"
 
 options		CPU_SOEKRIS
 options		CPU_ELAN
-options		HZ=1000
+options		HZ=150
 options 	SCHED_ULE		# ULE scheduler
 options 	PREEMPTION		# Enable kernel thread preemption
 options 	INET			# InterNETworking
@@ -23,36 +23,36 @@ options		DEVICE_POLLING
 options		NO_SWAPPING
 
 device		pci
-#device		eisa
+device		eisa
+
 device 		cbb
 device		pccard
 device		cardbus
 
 device		miibus
 device		sis
-device		nsphyter
 
 device		scbus
 device		ata
+device		ada
+device		da
+device		pass
 
-# Doesn't compile on 8? Pretty sure I saw this in dmesg on an 8 image...
-#device		sio
-#device		puc
+device		uart
 
-device 		da
+device		crypto
+device		loop
+device		random
+device		ether
+device		md
 
-device		uart			# Generic UART driver
-
-# Pseudo devices.
-device		crypto			# core crypto support
-device		loop			# Network loopback
-device		random			# Entropy device
-device		ether			# Ethernet support
-device		md			# Memory "disks"
 device		bpf
-device		vr
 device		ath
 device		wlan
 device		ath_pci
 device		ath_hal
 device		ath_rate_sample
+device		wlan_wep
+device		wlan_ccmp
+device		wlan_tkip
+device		pf
