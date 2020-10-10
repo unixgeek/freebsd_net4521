@@ -1,13 +1,13 @@
-ident		NET4521
+ident		NET5501
 machine		i386
-#cpu		I486_CPU
 cpu		I586_CPU
 
-hints		"NET4521.hints"
+hints		"NET5501.hints"
 
-options		COMPAT_FREEBSD11
+options		COMPAT_FREEBSD11	# Needed for Rust
 options		CPU_SOEKRIS
 options		CPU_ELAN
+options		CPU_GEODE
 options		HZ=1000
 options 	SCHED_ULE		# ULE scheduler
 options 	PREEMPTION		# Enable kernel thread preemption
