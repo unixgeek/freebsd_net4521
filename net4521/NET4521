@@ -1,0 +1,58 @@
+ident		NET4521
+machine		i386
+cpu		I486_CPU
+
+hints		"NET4521.hints"
+
+options		CPU_SOEKRIS
+options		CPU_ELAN
+options		HZ=150
+options 	SCHED_ULE		# ULE scheduler
+options 	PREEMPTION		# Enable kernel thread preemption
+options 	INET			# InterNETworking
+options 	FFS			# Berkeley Fast Filesystem
+options		SOFTUPDATES
+options 	MD_ROOT			# MD is a potential root device
+options 	SYSVSHM			# SYSV-style shared memory
+options 	SYSVMSG			# SYSV-style message queues
+options 	SYSVSEM			# SYSV-style semaphores
+options 	_KPOSIX_PRIORITY_SCHEDULING # POSIX P1003_1B real-time extensions
+options 	PRINTF_BUFR_SIZE=128	# Prevent printf output being interspersed.
+
+options		DEVICE_POLLING
+options		NO_SWAPPING
+
+device		pci
+device		eisa
+
+device 		cbb
+device		pccard
+device		cardbus
+
+device		miibus
+device		sis
+
+device		scbus
+device		ata
+device		ada
+device		da
+device		pass
+
+device		uart
+
+device		crypto
+device		loop
+device		random
+device		ether
+device		md
+
+device		bpf
+device		ath
+device		wlan
+device		ath_pci
+device		ath_hal
+device		ath_rate_sample
+device		wlan_wep
+device		wlan_ccmp
+device		wlan_tkip
+device		pf
