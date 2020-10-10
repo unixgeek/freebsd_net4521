@@ -11,6 +11,7 @@ pciconf -lv
 man -k Atheros
 
 
+https://www.sown.org.uk/wiki/Net4511
 https://sourceforge.net/projects/thewall/
 https://www.usenix.org/legacy/events/bsdcon/full_papers/schadow/schadow_html/
 http://www.netbsd.org/gallery/presentations/ast/2009_AsiaBSDCon/Tutorial_NetBSD+FreeBSD4Smallx86Systems.pdf
@@ -76,3 +77,25 @@ gettytab
 
 update passwd
 /usr/sbin/pwd_mkdb -p /etc/master.passwd
+
+https://www.freebsd.org/cgi/man.cgi?query=crunchgen&sektion=1&n=1
+
+device gzip
+
+
+20140608:
+        On i386 and amd64 systems, the onifconsole flag is now set by default
+        in /etc/ttys for ttyu0. This causes ttyu0 to be automatically enabled
+        as a login TTY if it is set in the bootloader as an active kernel
+        console. No changes in behavior should result otherwise. To revert to
+        the previous behavior, set ttyu0 to "off" in /etc/ttys.
+
+
+https://www.cryptomonkeys.com/2016/10/freebsd-Soekris-gps-ntp/
+https://wirelessleiden.nl/projects/SoekrisWRT
+https://lists.freebsd.org/pipermail/freebsd-questions/2012-May/240928.html
+https://web.archive.org/web/sitemap/http://www.webweaving.org/watchdog/
+
+
+ath_rx_pkt: rs_antenna > 7 (13218224)
+[zone: pf states] PF states limit reached

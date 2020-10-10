@@ -1,0 +1,39 @@
+device		apic			# I/O apic
+
+# Optional:
+options 	MPTABLE_FORCE_HTT	# Enable HTT CPUs with the MP Table
+
+#
+options 	CPU_BLUELIGHTNING_3X
+#options 	CPU_DISABLE_SSE
+options 	CPU_ELAN_XTAL=32768000
+
+  options 	XBOX
+	device		xboxfb
+
+	options		 	DEVICE_POLLING
+
+options			 	BPF_JITTER
+
+	device				nvram		# Access to rtc cmos via /dev/nvram
+
+device		gzip		#Exec gzipped a.out's.  REQUIRES COMPAT_AOUT!
+device		apm_saver	# Requires APM
+
+
+#####################################################################
+# HARDWARE BUS CONFIGURATION
+
+#
+# ISA bus
+#
+device		isa		# Required by npx(4)
+
+options 	MAXMEM=(128*1024)
+
+#device		ath_ar5210	# AR5210 chips
+
+options 	TIMER_FREQ=((14318182+6)/12)
+
+options 	_KPOSIX_PRIORITY_SCHEDULING # POSIX P1003_1B real-time extensions
+
