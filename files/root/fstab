@@ -1,3 +1,0 @@
-/dev/ad0s1a / ufs ro 0 1
-/dev/ad0s3 /cfg ufs rw,noauto 0 2
-/dev/ad0s4 /data ufs rw 0 2
